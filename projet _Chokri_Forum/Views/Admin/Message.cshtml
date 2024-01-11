@@ -1,0 +1,47 @@
+﻿@model IEnumerable<projet__Chokri_Forum.Models.Posts>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Posts.css" />
+</head>
+<body>
+ 
+
+    
+        @foreach (var item in Model)
+        {
+            <fieldset>
+                <legend style="font-size: 14px;">
+                <img src="@item.User.cheminavatar" style="max-width: 70px; max-height: 70px;" />
+
+                    @Html.DisplayFor(modelItem => item.User.pseudonyme)  le
+
+                    @Html.DisplayFor(modelItem => item.datecreationmessage) :
+
+                </legend>
+
+
+            @Html.ActionLink(item.message, "PostsDétails", new { id = item.id ,UserID = item.UserID })
+
+                <div>
+                    @if (item.UserID == ViewBag.ID_User)
+                    {
+                        <span>
+                            <br />
+                            @Html.ActionLink("Edit", "PostsEdit", new { id = item.id }) |
+                            @Html.ActionLink("Delete", "PostsDelete", new { id = item.id })
+                        </span>
+                    }
+                </div>
+            </fieldset>
+        }
+
+
+
+</body>
+</html>

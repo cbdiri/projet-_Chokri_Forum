@@ -1,0 +1,72 @@
+﻿@model IEnumerable<projet__Chokri_Forum.Models.Themes>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+
+
+<html>
+<head>
+
+    <style>
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h1>Liste des Themes </h1>
+    <br />
+    <br />
+    <form method="post">
+        <fieldset>
+            <legend>Add new Themes</legend>
+            <table>
+                <tr>
+                    <td><label>Nom de Theme : </label></td>
+                    <td><input type="text" name="n1" required /><br /></td>
+                    <td><input type="submit" value="add" /></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <br />
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <div class="card mb-4 box-shadow animate__animated animate__fadeIn">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                @Html.ActionLink(item.titre, "Posts", new { id = item.id })
+                            </h5>
+                            <div class="d-flex justify-content-end">
+                                <div class="btn-group">
+                                    @Html.ActionLink("Modifier", "ThemeEdit", new { id = item.id }, new { @class = "btn btn-sm btn-outline-primary animate__animated animate__fadeInLeft" }) |
+                                    @Html.ActionLink("Supprimer", "ThemeDelete", new { id = item.id }, new { @class = "btn btn-sm btn-outline-danger animate__animated animate__fadeInRight" }) |
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Ajoutez le lien vers la bibliothèque animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+</body>
+</html>

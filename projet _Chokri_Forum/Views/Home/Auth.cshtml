@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+  
+}
+<html>
+<head>
+
+    <link rel="stylesheet" href="~/css/Auth.css"/>
+    <style>
+        #warning{
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #9F6000;
+            background-color: #FEEFB3;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- Votre contenu HTML -->
+    <form id ="myForm" method="post" onsubmit="submitForm(event)">
+        <label>  pseudonyme : </label>
+        <input type="text" name="n1" value="admin"/><br />
+        <label>  Mot de Passe : </label>
+        <input type="password"  name="n2" value="admin"/><br />
+        <input type="submit" />
+    </form>
+    <br/>
+    <br/>
+    <label id="warning">@ViewBag.Message</label>
+    
+</body>
+</html>

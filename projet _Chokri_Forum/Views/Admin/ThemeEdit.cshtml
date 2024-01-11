@@ -1,0 +1,44 @@
+﻿@model projet__Chokri_Forum.Models.Themes
+
+@{
+    ViewData["Title"] = "ThemeEdit";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h1>ThemeEdit</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ThemeEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="titre" class="control-label"></label>
+                <input asp-for="titre" class="form-control" />
+                <span asp-validation-for="titre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForumId" class="control-label"></label>
+                <input asp-for="ForumId" class="form-control" />
+                <span asp-validation-for="ForumId" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <br/>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ForumsDétails" asp-route-id="@ViewBag.Forum_id">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

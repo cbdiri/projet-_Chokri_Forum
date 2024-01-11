@@ -1,0 +1,33 @@
+﻿@model IEnumerable<projet__Chokri_Forum.Models.Forums>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<h1>Liste des Forums </h1>
+<br />
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">
+                        <h4>
+                            @Html.ActionLink(item.titre, "ForumsDétails", new { id = item.id })
+                        </h4>
+                        <p class="card-text" style="display:non">
+                            Date création: @Html.DisplayFor(modelItem => item.Date)
+                        </p>
+                   
+                            </div>
+                        </div>
+                    </div>
+           
+        }
+    </div>
+</div>

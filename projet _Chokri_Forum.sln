@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projet _Chokri_Forum", "projet _Chokri_Forum\projet _Chokri_Forum.csproj", "{51D30BD5-14F4-437C-83B7-CF41CFD24DED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51D30BD5-14F4-437C-83B7-CF41CFD24DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D30BD5-14F4-437C-83B7-CF41CFD24DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D30BD5-14F4-437C-83B7-CF41CFD24DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51D30BD5-14F4-437C-83B7-CF41CFD24DED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3331FD8-7A08-45A3-B00D-4B0F5F7CC965}
+	EndGlobalSection
+EndGlobal

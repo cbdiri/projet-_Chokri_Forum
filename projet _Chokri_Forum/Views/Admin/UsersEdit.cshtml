@@ -1,0 +1,77 @@
+﻿@model projet__Chokri_Forum.Models.Users
+
+@{
+    ViewData["Title"] = "UsersEdit";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h4>UsersEdit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UsersEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="pseudonyme" class="control-label"></label>
+                <input asp-for="pseudonyme" class="form-control" />
+                <span asp-validation-for="pseudonyme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="motdepasse" class="control-label"></label>
+                <input asp-for="motdepasse" class="form-control" />
+                <span asp-validation-for="motdepasse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="inscrit" /> @Html.DisplayNameFor(model => model.inscrit)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="valide" /> @Html.DisplayNameFor(model => model.valide)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="cheminavatar" class="control-label"></label>
+                <input asp-for="cheminavatar" class="form-control" />
+                <span asp-validation-for="cheminavatar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="signature" class="control-label"></label>
+                <input asp-for="signature" class="form-control" />
+                <span asp-validation-for="signature" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="actif" /> @Html.DisplayNameFor(model => model.actif)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="admin" /> @Html.DisplayNameFor(model => model.admin)
+                </label>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <br/>
+            <br/>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Users">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

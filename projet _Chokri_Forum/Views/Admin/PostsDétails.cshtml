@@ -1,0 +1,58 @@
+﻿@model IEnumerable<projet__Chokri_Forum.Models.Messages>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" href="~/css/Posts.css" />
+
+ @foreach (var item in Model)
+        {
+   
+    <fieldset>
+        <legend style ="font-size: 14px;">
+            <img src="@ViewBag.v1" style="max-width: 70px; max-height: 70px;" />
+
+            @ViewBag.v2 :
+
+        </legend>
+       
+
+        @Html.DisplayFor(modelItem => item.Post.message)
+
+    </fieldset>
+         break;
+        }
+
+
+        @foreach (var item in Model)
+        {
+            <fieldset>
+        <legend style="font-size: 14px;" >
+            <img src="@item.User.cheminavatar" style="max-width: 70px; max-height: 70px;" />
+
+            @Html.DisplayFor(modelItem => item.User.pseudonyme)   le
+
+            @Html.DisplayFor(modelItem => item.dateMsg) :<br />
+        </legend>
+
+
+                @Html.DisplayFor(modelItem => item.contenu)
+                @Html.ActionLink("Edit", "EditMSG", new { id = item.id }) |
+                @Html.ActionLink("Delete", "DeleteMSG", new { id = item.id })
+
+    </fieldset>
+     
+                    @* Adjust the action links based on your requirements *@
+
+        }
+
+
+<form method="post">
+    <fieldset>
+        <legend>Repondre: </legend>
+
+        <textarea name="n1" required></textarea>
+        <br />
+        <input type="submit" value="Repondre" />
+    </fieldset>
+</form>

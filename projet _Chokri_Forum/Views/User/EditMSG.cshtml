@@ -1,0 +1,58 @@
+﻿@model projet__Chokri_Forum.Models.Messages
+
+@{
+    ViewData["Title"] = "EditMSG";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+
+}
+<h1>EditMSG</h1>
+
+<h4>Messages</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditMSG">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id" class="control-label" style="display:none;"></label>
+                <input asp-for="id" class="form-control" style="display:none;" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="contenu" class="control-label"></label>
+                <input asp-for="contenu" class="form-control" />
+                <span asp-validation-for="contenu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dateMsg" class="control-label" style="display:none;"></label>
+                <input asp-for="dateMsg" class="form-control" style="display:none;" />
+                <span asp-validation-for="dateMsg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostID" class="control-label" style="display:none;"></label>
+                <input asp-for="PostID" class="form-control" style="display:none;" />
+                <span asp-validation-for="PostID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label" style="display:none;"></label>
+                <input asp-for="UserID" class="form-control" style="display:none;" />
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="PostsDétails" asp-route-id="@ViewBag.ID_Post ">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

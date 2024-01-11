@@ -1,0 +1,74 @@
+﻿@model IEnumerable<projet__Chokri_Forum.Models.Forums>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<html>
+<head>
+
+    <style>
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h1>Liste des Forums polytech  </h1>
+<br />
+
+    <form method="post">
+        <fieldset>
+            <legend>Add new Forums</legend>
+            <table>
+                <tr>
+                    <td><label>Nom de Forums : </label></td>
+                    <td><input type="text" name="n1" required /><br /></td>
+                    <td><label style="display:none;">Date création : </label></td>
+                    <td><input type="datetime-local" name="n2" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" style="display:none;"  required /><br /></td>
+                    <td><input type="submit" value="add" /></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+<br/>
+<br/>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow animate__animated animate__fadeIn">
+                        <div class="card-body">
+                            <h4>
+                                @Html.ActionLink(item.titre, "ForumsDétails", new { id = item.id })
+                            </h4>
+                            <p class="card-text" style="display:none;">
+                                Date: @Html.DisplayFor(modelItem => item.Date)
+                            </p><br/>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    @Html.ActionLink("Modifier", "ForumsEdit", new { id = item.id }, new { @class = "btn btn-sm btn-outline-primary animate__animated animate__fadeInLeft" }) |
+                                    @Html.ActionLink("Supprimer", "ForumsDelete", new { id = item.id }, new {  @class = "btn btn-sm btn-outline-danger animate__animated animate__fadeInRight" }) 
+                                </div>
+                            </div>                                  
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Ajoutez le lien vers la bibliothèque animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+
+
+</body>
+</html>

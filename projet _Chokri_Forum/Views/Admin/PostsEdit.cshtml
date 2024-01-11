@@ -1,0 +1,59 @@
+﻿@model projet__Chokri_Forum.Models.Posts
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>PostsEdit</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PostsEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id" class="control-label" style="display:none;"></label>
+                <input asp-for="id" class="form-control" style="display:none;" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="message" class="control-label"></label>
+                <input asp-for="message" class="form-control" />
+                <span asp-validation-for="message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="datecreationmessage" class="control-label" style="display:none;"></label>
+                <input asp-for="datecreationmessage" class="form-control" style="display:none;" />
+                <span asp-validation-for="datecreationmessage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThemeID" class="control-label" style="display:none;"></label>
+                <input asp-for="ThemeID" class="form-control" style="display:none;" />
+                <span asp-validation-for="ThemeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label" style="display:none;"></label>
+                <input asp-for="UserID" class="form-control" style="display:none;" />
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <br />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Posts" asp-route-id="@Model.ThemeID">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
